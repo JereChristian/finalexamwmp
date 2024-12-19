@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.finalexamwmp">
+
+    <!-- Permissions -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="FinalExamWMP"
+        android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="Login &amp; Signup"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <!-- Start HomeActivity after successful login -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- HomeActivity (Dashboard after successful login) -->
+        <activity
+            android:name=".HomeActivity"
+            android:label="Home"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+            <!-- HomeActivity is accessed from MainActivity after login -->
+        </activity>
+
+        <!-- EnrollmentMenuActivity (Subject Enrollment Menu) -->
+        <activity
+            android:name=".EnrollmentMenuActivity"
+            android:label="Enrollment Menu"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+            <!-- Activity that allows users to select subjects for enrollment -->
+        </activity>
+
+        <!-- EnrollmentSummaryActivity (Enrollment Summary) -->
+        <activity
+            android:name=".EnrollmentSummaryActivity"
+            android:label="Enrollment Summary"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+            <!-- Shows the enrolled subjects and total credits -->
+        </activity>
+
+        <!-- ProfileActivity (User Profile Update) -->
+        <activity
+            android:name=".ProfileActivity"
+            android:label="Profile"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+            <!-- Allows users to update their profile -->
+        </activity>
+
+    </application>
+</manifest>

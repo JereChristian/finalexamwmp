@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="32dp"
+    android:gravity="center">
+
+    <!-- Welcome message to show the logged-in user's email -->
+    <TextView
+        android:id="@+id/welcomeMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Welcome to the App!"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_marginBottom="20dp" />
+
+    <!-- Sign out button -->
+    <Button
+        android:id="@+id/signOutButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign Out"
+        android:layout_marginTop="20dp" />
+
+    <!-- Button to go to Enrollment Menu -->
+    <Button
+        android:id="@+id/enrollmentMenuButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go to Enrollment Menu"
+        android:layout_marginTop="20dp" />
+
+    <!-- Button to view Enrollment Summary -->
+    <Button
+        android:id="@+id/enrollmentSummaryButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View Enrollment Summary"
+        android:layout_marginTop="20dp" />
+</LinearLayout>

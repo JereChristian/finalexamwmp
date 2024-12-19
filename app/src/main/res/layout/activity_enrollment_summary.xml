@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="32dp"
+    android:gravity="center">
+
+    <!-- Title of Enrollment Summary -->
+    <TextView
+        android:id="@+id/enrollmentSummaryTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enrollment Summary"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_marginBottom="20dp" />
+
+    <!-- List of enrolled subjects (RecyclerView or ListView) -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/enrolledSubjectsListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp" />
+
+    <!-- Total Credits -->
+    <TextView
+        android:id="@+id/totalCreditsText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Total Credits: 0"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:layout_marginBottom="20dp" />
+
+    <!-- Button to go back to Home -->
+    <Button
+        android:id="@+id/goBackToHomeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go Back to Home"
+        android:layout_marginTop="20dp" />
+
+</LinearLayout>
