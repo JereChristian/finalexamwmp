@@ -6,7 +6,6 @@
     android:padding="32dp"
     android:gravity="center">
 
-    <!-- Title of Enrollment Menu -->
     <TextView
         android:id="@+id/enrollmentMenuTitle"
         android:layout_width="match_parent"
@@ -16,14 +15,12 @@
         android:gravity="center"
         android:layout_marginBottom="20dp" />
 
-    <!-- List of subjects available for enrollment (RecyclerView or ListView) -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/subjectsListView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"/>
 
-    <!-- Button to confirm the enrollment -->
     <Button
         android:id="@+id/enrollButton"
         android:layout_width="wrap_content"
@@ -31,7 +28,6 @@
         android:text="Confirm Enrollment"
         android:layout_marginTop="20dp" />
 
-    <!-- Button to go back to Home Activity -->
     <Button
         android:id="@+id/goBackButton"
         android:layout_width="wrap_content"

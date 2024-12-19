@@ -43,10 +43,8 @@ public class EnrollmentSummaryActivity extends AppCompatActivity {
             return;
         }
 
-        // Initialize UI components
         initializeViews();
 
-        // Fetch enrolled subjects
         fetchEnrolledSubjects();
     }
 
@@ -66,14 +64,11 @@ public class EnrollmentSummaryActivity extends AppCompatActivity {
             }
         };
 
-        // Set up RecyclerView
         enrolledSubjectsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         enrolledSubjectsRecyclerView.setAdapter(subjectAdapter);
 
-        // Set Go Back button functionality
         goBackButton.setOnClickListener(v -> finish());
 
-        // Initialize total credits
         totalCredits = 0;
     }
 
@@ -82,14 +77,13 @@ public class EnrollmentSummaryActivity extends AppCompatActivity {
                 .whereEqualTo("userId", userId)
                 .get()
                 .addOnSuccessListener(queryDocumentSnapshots -> {
-                    enrolledSubjectsList.clear();  // Clear the existing list to avoid duplication
-                    totalCredits = 0;  // Reset total credits
+                    enrolledSubjectsList.clear();
+                    totalCredits = 0;
 
                     if (!queryDocumentSnapshots.isEmpty()) {
                         for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
                             String subjectId = document.getString("subjectId");
                             if (subjectId != null) {
-                                // Fetch subject details by subjectId
                                 fetchSubjectDetails(subjectId);
                             }
                         }

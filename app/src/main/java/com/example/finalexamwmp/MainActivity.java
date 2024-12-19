@@ -1,4 +1,3 @@
-// MainActivity.java
 package com.example.finalexamwmp;
 
 import android.content.Intent;
@@ -27,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mAuth = FirebaseAuth.getInstance();
-        mDatabase = FirebaseDatabase.getInstance().getReference(); // Firebase Realtime Database reference
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
         emailEditText = findViewById(R.id.email);
         passwordEditText = findViewById(R.id.password);
@@ -91,16 +90,12 @@ public class MainActivity extends AppCompatActivity {
         String userId = user.getUid();
         String email = user.getEmail();
 
-        // Initialize user with 0 credits
         User newUser = new User(userId, email, 0);
 
-        // Save the user data to Firebase Database
         mDatabase.child("users").child(userId).setValue(newUser)
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        // User saved successfully
                     } else {
-                        // Handle error
                     }
                 });
     }

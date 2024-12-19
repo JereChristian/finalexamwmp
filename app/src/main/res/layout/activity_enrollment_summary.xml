@@ -6,7 +6,6 @@
     android:padding="32dp"
     android:gravity="center">
 
-    <!-- Title of Enrollment Summary -->
     <TextView
         android:id="@+id/enrollmentSummaryTitle"
         android:layout_width="match_parent"
@@ -16,14 +15,12 @@
         android:gravity="center"
         android:layout_marginBottom="20dp" />
 
-    <!-- List of enrolled subjects (RecyclerView or ListView) -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/enrolledSubjectsListView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp" />
 
-    <!-- Total Credits -->
     <TextView
         android:id="@+id/totalCreditsText"
         android:layout_width="match_parent"
@@ -33,7 +30,6 @@
         android:gravity="center"
         android:layout_marginBottom="20dp" />
 
-    <!-- Button to go back to Home -->
     <Button
         android:id="@+id/goBackToHomeButton"
         android:layout_width="wrap_content"

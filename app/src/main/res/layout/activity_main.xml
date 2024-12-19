@@ -6,7 +6,6 @@
     android:padding="32dp"
     android:gravity="center">
 
-    <!-- Email input field -->
     <EditText
         android:id="@+id/email"
         android:layout_width="match_parent"
@@ -17,7 +16,6 @@
         android:layout_marginBottom="16dp"
         android:background="@drawable/edit_text_border" />
 
-    <!-- Password input field -->
     <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"
@@ -28,7 +26,6 @@
         android:layout_marginBottom="16dp"
         android:background="@drawable/edit_text_border" />
 
-    <!-- Login Button -->
     <Button
         android:id="@+id/loginButton"
         android:layout_width="match_parent"
@@ -38,7 +35,6 @@
         android:textColor="@android:color/white"
         android:layout_marginBottom="16dp" />
 
-    <!-- Sign up Button -->
     <Button
         android:id="@+id/signupButton"
         android:layout_width="match_parent"
@@ -47,7 +43,6 @@
         android:background="@color/colorAccent"
         android:textColor="@android:color/white" />
 
-    <!-- You can add a TextView for forgot password or other actions -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

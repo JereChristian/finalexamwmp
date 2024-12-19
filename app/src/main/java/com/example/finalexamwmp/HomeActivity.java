@@ -33,14 +33,11 @@ public class HomeActivity extends AppCompatActivity {
         enrollmentMenuButton = findViewById(R.id.enrollmentMenuButton);
         enrollmentSummaryButton = findViewById(R.id.enrollmentSummaryButton);
 
-        // Get the current user
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (currentUser != null) {
-            // Display welcome message with user email
             String email = currentUser.getEmail();
             welcomeMessage.setText("Welcome, " + email);
 
-            // Fetch user data to display total credits
             String userId = currentUser.getUid();
             mDatabase.child("users").child(userId).get().addOnCompleteListener(task -> {
                 if (task.isSuccessful()) {
@@ -51,16 +48,13 @@ public class HomeActivity extends AppCompatActivity {
                 }
             });
 
-            // Handle sign out button
             signOutButton.setOnClickListener(v -> signOut());
 
-            // Handle the enrollment menu button click to navigate to the enrollment screen
             enrollmentMenuButton.setOnClickListener(v -> {
                 Intent intent = new Intent(HomeActivity.this, EnrollmentMenuActivity.class);
                 startActivity(intent);
             });
 
-            // Handle the enrollment summary button click to view enrolled subjects
             enrollmentSummaryButton.setOnClickListener(v -> {
                 Intent intent = new Intent(HomeActivity.this, EnrollmentSummaryActivity.class);
                 startActivity(intent);
@@ -68,16 +62,15 @@ public class HomeActivity extends AppCompatActivity {
 
         } else {
             Toast.makeText(this, "No user logged in", Toast.LENGTH_SHORT).show();
-            signOut(); // Sign out and redirect to login screen
+            signOut();
         }
     }
 
     // Sign out method
     private void signOut() {
         mAuth.signOut();
-        // Redirect to the login screen
         Intent intent = new Intent(HomeActivity.this, MainActivity.class);
         startActivity(intent);
-        finish(); // Close the HomeActivity so the user cannot navigate back
+        finish();
     }
 }

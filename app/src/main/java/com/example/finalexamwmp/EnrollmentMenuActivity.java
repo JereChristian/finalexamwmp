@@ -25,7 +25,7 @@ public class EnrollmentMenuActivity extends AppCompatActivity {
     private List<Subject> subjectList;
     private SubjectAdapter subjectAdapter;
     private String userId;
-    private int totalCredits = 0; // Initialize totalCredits
+    private int totalCredits = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,10 +33,8 @@ public class EnrollmentMenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_enrollment_menu);
 
         try {
-            // Initialize Firebase components
             db = FirebaseFirestore.getInstance();
 
-            // Get the current user's ID
             userId = FirebaseAuth.getInstance().getCurrentUser() != null ?
                     FirebaseAuth.getInstance().getCurrentUser().getUid() : null;
             if (userId == null) {
@@ -45,13 +43,10 @@ public class EnrollmentMenuActivity extends AppCompatActivity {
                 return;
             }
 
-            // Initialize UI components
             initializeViews();
 
-            // Fetch current enrollment credits
             fetchCurrentEnrollmentCredits();
 
-            // Fetch available subjects
             fetchSubjects();
 
         } catch (Exception e) {
@@ -62,7 +57,6 @@ public class EnrollmentMenuActivity extends AppCompatActivity {
     }
 
     private void initializeViews() {
-        // Initialize RecyclerView
         subjectsRecyclerView = findViewById(R.id.subjectsListView);
         if (subjectsRecyclerView == null) {
             throw new IllegalStateException("subjectsListView not found in layout");
@@ -70,19 +64,16 @@ public class EnrollmentMenuActivity extends AppCompatActivity {
 
         subjectsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        // Initialize subject list and adapter
         subjectList = new ArrayList<>();
         subjectAdapter = new SubjectAdapter(this, subjectList);
         subjectsRecyclerView.setAdapter(subjectAdapter);
 
-        // Initialize enroll button
         enrollButton = findViewById(R.id.enrollButton);
         if (enrollButton == null) {
             throw new IllegalStateException("enrollButton not found in layout");
         }
         enrollButton.setOnClickListener(v -> enrollSubjects());
 
-        // Initialize 'Go Back' button
         Button goBackButton = findViewById(R.id.goBackButton);
         if (goBackButton == null) {
             throw new IllegalStateException("goBackButton not found in layout");
@@ -135,7 +126,6 @@ public class EnrollmentMenuActivity extends AppCompatActivity {
                     } else {
                         Log.d(TAG, "No subjects found in the database");
                     }
-                    // Notify adapter after adding all items
                     subjectAdapter.notifyDataSetChanged();
                 })
                 .addOnFailureListener(e -> {
@@ -148,7 +138,6 @@ public class EnrollmentMenuActivity extends AppCompatActivity {
         List<Subject> selectedSubjects = new ArrayList<>();
         int additionalCredits = 0;
 
-        // Calculate total credits for selected subjects
         for (Subject subject : subjectList) {
             if (subject.isSelected()) {
                 additionalCredits += subject.getCredits();
@@ -156,17 +145,14 @@ public class EnrollmentMenuActivity extends AppCompatActivity {
             }
         }
 
-        // Debug: Check the number of selected subjects
         Log.d(TAG, "Selected subjects count: " + selectedSubjects.size());
 
-        // Check if total credits would exceed limit
         if (totalCredits + additionalCredits > 24) {
             Toast.makeText(this, "Cannot exceed 24 credits. Current credits: " + totalCredits,
                     Toast.LENGTH_LONG).show();
             return;
         }
 
-        // Enroll in selected subjects
         if (selectedSubjects.isEmpty()) {
             Toast.makeText(this, "No subjects selected for enrollment.", Toast.LENGTH_SHORT).show();
             return;
@@ -180,10 +166,8 @@ public class EnrollmentMenuActivity extends AppCompatActivity {
     private void enrollInSubject(Subject subject) {
         Enrollment enrollment = new Enrollment(userId, subject.getSubjectId());
 
-        // Debug: Log the enrollment data
         Log.d(TAG, "Enrolling in subject: " + subject.getSubjectName() + " (ID: " + subject.getSubjectId() + ")");
 
-        // Check if already enrolled
         db.collection("enrollments")
                 .whereEqualTo("userId", userId)
                 .whereEqualTo("subjectId", subject.getSubjectId())

@@ -1,12 +1,10 @@
 package com.example.finalexamwmp;
 
-// User.java
 public class User {
     private String userId;
     private String email;
     private int totalCredits;
 
-    // Default constructor required for Firebase Firestore
     public User() {}
 
     public User(String userId, String email, int totalCredits) {

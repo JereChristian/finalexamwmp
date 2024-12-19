@@ -33,7 +33,6 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.SubjectV
         holder.subjectCreditsTextView.setText("Credits: " + subject.getCredits());
         holder.subjectCheckBox.setChecked(true); // Assuming all subjects are already enrolled
 
-        // Optionally, handle checkbox change if needed
         holder.subjectCheckBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
             subject.setSelected(isChecked);
         });

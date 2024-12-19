@@ -6,18 +6,15 @@ public class Subject {
     private int credits;
     private boolean selected;
 
-    // Default constructor (for Firebase)
     public Subject() {}
 
-    // Constructor with parameters
     public Subject(String subjectId, String subjectName, int credits) {
         this.subjectId = subjectId;
         this.subjectName = subjectName;
         this.credits = credits;
-        this.selected = false;  // Default to unselected
+        this.selected = false;
     }
 
-    // Getters and setters
     public String getSubjectId() {
         return subjectId;
     }

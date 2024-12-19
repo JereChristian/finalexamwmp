@@ -7,7 +7,6 @@
     android:layout_marginBottom="8dp"
     android:background="?android:attr/selectableItemBackground">
 
-    <!-- Subject Name -->
     <TextView
         android:id="@+id/subjectNameTextView"
         android:layout_width="0dp"
@@ -17,7 +16,6 @@
         android:textSize="16sp"
         android:gravity="start" />
 
-    <!-- Subject Credits -->
     <TextView
         android:id="@+id/subjectCreditsTextView"
         android:layout_width="wrap_content"
@@ -27,7 +25,6 @@
         android:gravity="end"
         android:layout_marginEnd="16dp"/>
 
-    <!-- CheckBox to select subject -->
     <CheckBox
         android:id="@+id/subjectCheckBox"
         android:layout_width="wrap_content"
